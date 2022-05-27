@@ -17,7 +17,7 @@ describe('task', () => {
     })
     describe('checkUsersConfidence', () => {
         it('should work for example data', () => {
-            expect(checkUsersConfidence(users).length).toBe(3);
+            expect(checkUsersConfidence(users).length).toBe(2);
         })
     })
 });
