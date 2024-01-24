@@ -7,6 +7,8 @@ type User = {
     warningsCount: number,
 }
 
+const oneDay = 86400000;
+
 export const users: User[] = [
     {
         name: 'Calvin Klein',
@@ -50,12 +52,21 @@ export const users: User[] = [
     },
 ];
 
-export class TrustedUser { }
+export class TrustedUser {
+    constructor(public user: User) {}
+    getConfidenceRatio(): number {
+        return this.user.messagesCount * 2 - this.user.warningsCount * 100 + Math.trunc((Date.now() - this.user.registrationDate.getTime()) / oneDay);
+    }
+}
 
-export class ConfidenceHelper { }
+export class ConfidenceHelper {
+    static checkConfidenceRatio(confidence: number): boolean {
+        return confidence >= 0;
+    }
+}
 
-export function checkUsersConfidence(users: User[]) {
-    throw new Error('Function not implemented');
+export function checkUsersConfidence(users: User[]): User[] {
+    return users.filter((user) => !ConfidenceHelper.checkConfidenceRatio(new TrustedUser(user).getConfidenceRatio()));
 }
 
 console.log(checkUsersConfidence(users));
