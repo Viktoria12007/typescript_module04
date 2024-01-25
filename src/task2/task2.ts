@@ -14,11 +14,11 @@ const items: Array<OrderItem> = [
 ]
 
 for (const item of items) {
-    console.log(item.log());
+    item.log();
 }
 console.log('==========================');
 items.sort((a, b) => a.compare(b));
 
 for (const item of items) {
-    console.log(item.log());
+    item.log();
 }
