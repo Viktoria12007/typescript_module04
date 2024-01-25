@@ -1,7 +1,13 @@
-import {CanRun} from "./interfaces";
+import {Human} from "./human";
 
-export class Athletes implements CanRun {
+export class Athletes extends Human {
+    fly(): void {
+        console.log('I can`t fly')
+    }
     run(): void {
-        console.log('run')
+        console.log('I can run')
+    }
+    swim(): void {
+        console.log('I can`t swim')
     }
 }

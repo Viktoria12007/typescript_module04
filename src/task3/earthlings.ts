@@ -1,10 +1,13 @@
-import {CanRun, CanSwim} from "./interfaces";
+import {Human} from "./human";
 
-export class Earthlings implements CanRun, CanSwim {
+export class Earthlings extends Human {
+    fly(): void {
+        console.log('I can`t fly')
+    }
     run(): void {
-        console.log('run')
+        console.log('I can run')
     }
     swim(): void {
-        console.log('swim')
+        console.log('I can swim')
     }
 }

@@ -1,13 +1,13 @@
-import {CanFly, CanRun, CanSwim} from "./interfaces";
+import {Human} from "./human";
 
-export class Kryptonians implements CanFly, CanRun, CanSwim {
+export class Kryptonians extends Human {
     fly(): void {
-        console.log('fly')
+        console.log('I can fly')
     }
     run(): void {
-        console.log('run')
+        console.log('I can run')
     }
     swim(): void {
-        console.log('swim')
+        console.log('I can swim')
     }
 }
